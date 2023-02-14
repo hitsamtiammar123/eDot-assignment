@@ -48,8 +48,8 @@ function App() {
   }
 
   function onSubmit(operation: string){
-    const checkInput = inputsNumber[0].checked;
-    if(!checkInput){
+    const checkInput = inputsNumber.reduce((prev: number, curr: InputNumber) => curr.checked ? prev + 1 : prev , 0);
+    if(checkInput < 2){
       alert('Please check at least two checkboxes');
       return;
     }
